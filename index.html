@@ -4,125 +4,418 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | HYBRA VOID</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #07090e;
-            --bg-card: #0f131c;
-            --primary: #38bdf8;
-            --secondary: #818cf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --bg-main: #05070c;
+            --bg-surface: rgba(15, 20, 32, 0.75);
+            --bg-surface-hover: rgba(22, 30, 48, 0.9);
+            --accent: #38bdf8;
+            --accent-secondary: #818cf8;
+            --accent-glow: rgba(129, 140, 248, 0.25);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.8;
-            background-image: radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.07) 0%, transparent 45%);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.75;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 90% 0%, rgba(129, 140, 248, 0.14) 0%, transparent 40%),
+                radial-gradient(circle at 10% 100%, rgba(56, 189, 248, 0.1) 0%, transparent 45%);
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 8%;
-            background: rgba(7, 9, 14, 0.9);
-            border-bottom: 1px solid var(--border-color);
+
+        /* Responsive Glass Navbar */
+        header {
             position: sticky;
             top: 0;
-            backdrop-filter: blur(10px);
+            z-index: 100;
+            background: rgba(5, 7, 12, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
         }
-        .logo { font-weight: 900; font-size: 1.3rem; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        .container { max-width: 950px; margin: 3.5rem auto; padding: 0 6%; }
-        .header-box { margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
-        .header-box h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
-        .header-box span { color: var(--primary); font-size: 0.9rem; font-weight: 600; }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.9rem;
         }
-        .card h2 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
-        .card p, .card li { color: var(--text-muted); font-size: 0.98rem; margin-bottom: 0.7rem; }
-        .card ul { padding-left: 1.5rem; }
-        footer { text-align: center; padding: 2.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; margin-top: 3rem; }
-        a.inline-link { color: var(--primary); text-decoration: none; }
-        a.inline-link:hover { text-decoration: underline; }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #05070c;
+            font-weight: 900;
+            font-size: 1rem;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .nav-pills a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-pills a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-pills a.active {
+            background: linear-gradient(135deg, rgba(129, 140, 248, 0.22), rgba(56, 189, 248, 0.22));
+            color: #a5b4fc;
+            border: 1px solid rgba(129, 140, 248, 0.35);
+        }
+
+        /* Hero Banner */
+        .hero {
+            max-width: 900px;
+            margin: 3.5rem auto 2.5rem;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: rgba(129, 140, 248, 0.12);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            color: #a5b4fc;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .meta-info {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        /* Content Cards */
+        .content {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .clause-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.8rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .clause-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(129, 140, 248, 0.4);
+            background: var(--bg-surface-hover);
+        }
+
+        .clause-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .clause-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(129, 140, 248, 0.14);
+            border: 1px solid rgba(129, 140, 248, 0.35);
+            color: #a5b4fc;
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .clause-card h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .clause-card p {
+            color: var(--text-secondary);
+            font-size: 0.96rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .clause-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .clause-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .clause-card li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .clause-card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #a5b4fc;
+            font-weight: bold;
+        }
+
+        code {
+            background: rgba(129, 140, 248, 0.15);
+            color: #c7d2fe;
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
+
+        a.text-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(56, 189, 248, 0.5);
+            transition: 0.2s;
+        }
+
+        a.text-link:hover {
+            color: #fff;
+            border-bottom-style: solid;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            background: rgba(5, 7, 12, 0.9);
+            padding: 2.5rem 5%;
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="index.html" class="logo">HYBRA VOID</a>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy.html" class="active">Privacy Policy</a>
-        <a href="https://discord.gg/j8MuzG97V" target="_blank">Support Server</a>
+<header>
+    <div class="nav-container">
+        <a href="https://yaseen212.github.io/Hybra-void-bot-site/" class="brand">
+            <div class="brand-icon">H</div>
+            <span>HYBRA VOID</span>
+        </a>
+        <nav class="nav-pills">
+            <a href="https://yaseen212.github.io/Hybra-void-bot-site/">Home</a>
+            <a href="https://yaseen212.github.io/Hybra-terms/">Terms</a>
+            <a href="https://yaseen212.github.io/Hybra-privacy/" class="active">Privacy</a>
+            <a href="https://discord.gg/j8MuzG97V" target="_blank">Support</a>
+        </nav>
     </div>
-</nav>
+</header>
 
-<div class="container">
-    <div class="header-box">
-        <h1>Privacy Policy</h1>
-        <span>Effective Date: November 19, 2026 | Data Protection Standard</span>
+<section class="hero">
+    <div class="badge">🔒 Data Protection</div>
+    <h1>Privacy Policy</h1>
+    <p>Transparency on how Hybra Void handles, processes, and safeguards technical identifiers across Discord servers.</p>
+    <div class="meta-info">Effective Date: November 20, 2026 • GDPR Aligned</div>
+</section>
+
+<main class="content">
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">01</div>
+            <h2>Commitment to Privacy</h2>
+        </div>
+        <p>Your privacy is foundational to the <strong>Hybra Void</strong> architecture. This Privacy Policy outlines what minimal data is collected when you interact with Hybra Void on Discord, how it is processed in real time, how it is secured, and your rights regarding data deletion.</p>
     </div>
 
-    <div class="card">
-        <h2>1. Overview & Commitment to Privacy</h2>
-        <p>Your privacy is a top priority for the <strong>Hybra Void</strong> development team. This Privacy Policy explains what information is collected when you interact with Hybra Void on Discord, how that data is processed, how it is protected, and your rights regarding your data.</p>
-    </div>
-
-    <div class="card">
-        <h2>2. Information We Collect</h2>
-        <p>Hybra Void operates on a strict data-minimization principle. We only collect and store technical identifiers necessary to provide bot functionality:</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">02</div>
+            <h2>Information We Collect</h2>
+        </div>
+        <p>Hybra Void follows a strict data-minimization standard, storing only technical identifiers required for core bot functionality:</p>
         <ul>
             <li><strong>Discord Identifiers:</strong> User IDs, Guild (Server) IDs, Channel IDs, and Role IDs.</li>
-            <li><strong>Configuration Data:</strong> Server-specific settings such as log channel assignments, FireProof security status, AI moderation toggles, and TempVoice hub IDs.</li>
-            <li><strong>User Activity Metrics:</strong> Moderation warning counts, XP levels, virtual currency balances (<code>Hybra Credits</code>), daily reward timestamps, and invite tracking counts.</li>
+            <li><strong>Server Configurations:</strong> Designated log channels, FireProof shield states, AI moderation toggles, and TempVoice hub setups.</li>
+            <li><strong>Activity & Progression:</strong> Warning counts, XP levels, virtual currency balances (<code>Hybra Credits</code>), daily cooldown timestamps, and invite statistics.</li>
         </ul>
-        <p>We <strong>never</strong> collect passwords, email addresses, IP addresses, billing details, or direct messages outside of active support tickets.</p>
+        <p>We <strong>never</strong> collect passwords, emails, IP addresses, payment info, or private DMs outside of active support tickets.</p>
     </div>
 
-    <div class="card">
-        <h2>3. Message Content & Third-Party AI Processing</h2>
-        <p>To power automated profanity detection and AI responses (<code>/ask</code>, <code>/roast</code>, and bot mentions), message text is transmitted securely via encrypted HTTPS requests to our AI inference provider (<strong>Groq API</strong>). Message content is processed in real time solely to generate a moderation verdict or reply and is <strong>never permanently logged or stored</strong> in our databases. If a violation occurs, the deleted message content may be sent directly to your server's designated private log channel for administrator review.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">03</div>
+            <h2>Message Content & AI Processing</h2>
+        </div>
+        <p>To operate automated profanity filtering and interactive AI commands (<code>/ask</code>, <code>/roast</code>, and bot mentions), message text is securely transmitted over encrypted HTTPS to our AI inference provider (<strong>Groq API</strong>). Message content is evaluated ephemerally in real time and is <strong>never permanently stored or logged</strong> in our databases. Flagged violations may be forwarded solely to your server's private administrator log channel.</p>
     </div>
 
-    <div class="card">
-        <h2>4. Data Storage & Security</h2>
-        <p>All persistent configuration and user progression records are stored securely on isolated server infrastructure with restricted administrative access. We implement reasonable technical safeguards to protect stored identifiers against unauthorized access, alteration, or disclosure. We never sell, rent, or trade user data to third parties.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">04</div>
+            <h2>Data Storage & Security Safeguards</h2>
+        </div>
+        <p>Persistent configuration and progression data are stored on isolated server environments with strict administrative access controls. We employ technical safeguards against unauthorized access or alteration and <strong>never sell, rent, or trade</strong> user data to third parties.</p>
     </div>
 
-    <div class="card">
-        <h2>5. Data Retention & User Rights (Data Deletion)</h2>
-        <p>Data is retained only as long as Hybra Void remains active in a server or as required to maintain your user profile. Under global privacy standards (including GDPR principles), you have the right to:</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">05</div>
+            <h2>Data Retention & Deletion Rights</h2>
+        </div>
+        <p>Data is retained only while Hybra Void remains active in a server or as needed to maintain your profile. You retain the full right to:</p>
         <ul>
-            <li>Request a summary of the data stored associated with your Discord User ID.</li>
-            <li>Request complete deletion/reset of your stored warnings, XP, credits, or server configurations.</li>
+            <li>Request an export or summary of technical records linked to your Discord User ID.</li>
+            <li>Request permanent erasure of your stored warnings, XP, credits, or server configurations.</li>
         </ul>
-        <p>To exercise your data rights, open a support ticket in our official <a href="https://discord.gg/j8MuzG97V" target="_blank" class="inline-link">HYBRA'S RISE Discord Server</a>, and our team will process your request within 72 hours.</p>
+        <p>To submit a data request, open a ticket in our official <a href="https://discord.gg/j8MuzG97V" target="_blank" class="text-link">HYBRA'S RISE Discord Server</a>; requests are fulfilled within 72 hours.</p>
     </div>
 
-    <div class="card">
-        <h2>6. Children's Privacy</h2>
-        <p>In accordance with Discord's Terms of Service, Hybra Void is not intended for individuals under the minimum age required to use Discord in their respective country (typically 13 years old). We do not knowingly collect data from underage users.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">06</div>
+            <h2>Children's Privacy</h2>
+        </div>
+        <p>In compliance with Discord's Terms of Service, Hybra Void is not directed toward individuals under the minimum digital consent age in their jurisdiction (typically 13 years old). We do not knowingly collect data from underage users.</p>
     </div>
 
-    <div class="card">
-        <h2>7. Policy Updates</h2>
-        <p>We may update this Privacy Policy periodically as we introduce new systems and commands. Any changes will be posted directly on this page with an updated effective date.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">07</div>
+            <h2>Policy Updates</h2>
+        </div>
+        <p>We may revise this Privacy Policy as new modules and commands are introduced. All updates will be published directly on this page with an updated effective date.</p>
     </div>
-</div>
+</main>
 
 <footer>
-    © 2026 <strong>HYBRA'S RISE</strong> — Hybra Void Security & Privacy. All Rights Reserved.
+    <div class="footer-nav">
+        <a href="https://yaseen212.github.io/Hybra-void-bot-site/">Main Website</a>
+        <a href="https://yaseen212.github.io/Hybra-terms/">Terms of Service</a>
+        <a href="https://yaseen212.github.io/Hybra-privacy/">Privacy Policy</a>
+        <a href="https://discord.gg/j8MuzG97V" target="_blank">Discord Server</a>
+    </div>
+    <p class="copyright">© 2026 <strong>HYBRA'S RISE</strong> — Hybra Void Security & Privacy. All Rights Reserved.</p>
 </footer>
 
 </body>
